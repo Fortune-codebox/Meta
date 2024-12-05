@@ -189,7 +189,7 @@ if __name__ == '__main__':
 
     # strategy parameters
     SYMBOL = "BTCUSDm"
-    TIMEFRAME = mt5.TIMEFRAME_15
+    TIMEFRAME = mt5.TIMEFRAME_M15
     SMA_PERIODS = [50]
     DEVIATION = 20
 
