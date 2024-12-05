@@ -142,9 +142,9 @@ class BotF(Candlesticks):
         percent = self.__calc_distance_percentage(sma50, last_close)
         print(percent)
         direction = 'flat'
-        if last_close > sma50 and percent <= 1.00:
+        if last_close > sma50 and percent <= 3.00:
             direction = 'buy'
-        elif last_close < sma50 and percent <= 1.00:
+        elif last_close < sma50 and percent <= 3.00:
             direction = 'sell'
 
         return last_close, sma50, direction
@@ -189,7 +189,7 @@ if __name__ == '__main__':
 
     # strategy parameters
     SYMBOL = "BTCUSDm"
-    TIMEFRAME = mt5.TIMEFRAME_M15
+    TIMEFRAME = mt5.TIMEFRAME_M5
     SMA_PERIODS = [50]
     DEVIATION = 20
 
