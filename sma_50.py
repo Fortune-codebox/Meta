@@ -196,7 +196,7 @@ if __name__ == '__main__':
     btc_M15 = BotF(symbol=SYMBOL, time_frame=TIMEFRAME,
                    sma_period=SMA_PERIODS, deviation=DEVIATION, isYen=False)
 
-    val = btc_M15.pip_converter()
+    # val = btc_M15.pip_converter()
 
     # mt5.initialize()
 
