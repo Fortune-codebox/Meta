@@ -215,7 +215,7 @@ if __name__ == '__main__':
 
                 for pos in positions:
                     if pos.type == 1:  # pos.type == 1 represent a sell order
-                        if pos.price_current >= btc_M15.tp_calc(pos.open_price, 100, pos.type):
+                        if pos.price_current >= btc_M15.tp_calc(pos.price_open, 100, pos.type):
                           btc_M15.close_order(pos.ticket)
                         else:
                           btc_M15.close_order(pos.ticket)
@@ -232,7 +232,7 @@ if __name__ == '__main__':
             if positions:
                 for pos in positions:
                     if pos.type == 0:  # pos.type == 0 represent a buy order
-                        if pos.price_current <= btc_M15.tp_calc(pos.open_price, 100, pos.type):
+                        if pos.price_current <= btc_M15.tp_calc(pos.price_open, 100, pos.type):
                           btc_M15.close_order(pos.ticket)
                         else:
                           btc_M15.close_order(pos.ticket)
