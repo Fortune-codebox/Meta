@@ -60,14 +60,14 @@ class BotF(Candlesticks):
             "sl": self.mt5.symbol_info_tick(self.symbol).ask-10*point,
             "tp": self.mt5.symbol_info_tick(self.symbol).ask+100*point,
             "deviation": DEVIATION,
-            "magic": 234000, #100
+            "magic": 100, #234000
             "comment": "bot_i market order",
             "type_time": self.mt5.ORDER_TIME_GTC,
             "type_filling": self.mt5.ORDER_FILLING_IOC,
         }
 
         order_result = self.mt5.order_send(payload)
-        print('Order Here!!!: ', order_result)
+        print(order_result)
 
         return order_result
 
@@ -196,7 +196,7 @@ if __name__ == '__main__':
     SYMBOL = "BTCUSDm"
     TIMEFRAME = mt5.TIMEFRAME_M15
     SMA_PERIODS = [50]
-    DEVIATION = 10
+    DEVIATION = 20
 
     btc_M15 = BotF(symbol=SYMBOL, time_frame=TIMEFRAME,
                    sma_period=SMA_PERIODS, deviation=DEVIATION, isYen=False)
