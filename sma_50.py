@@ -196,7 +196,7 @@ if __name__ == '__main__':
     SYMBOL = "BTCUSDm"
     TIMEFRAME = mt5.TIMEFRAME_M15
     SMA_PERIODS = [50]
-    DEVIATION = 20
+    DEVIATION = 10
 
     btc_M15 = BotF(symbol=SYMBOL, time_frame=TIMEFRAME,
                    sma_period=SMA_PERIODS, deviation=DEVIATION, isYen=False)
