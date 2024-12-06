@@ -45,9 +45,11 @@ class BotF(Candlesticks):
 
     def market_order(self, direction, **kwargs):
         tick = self.mt5.symbol_info_tick(self.symbol)
+        point=self.mt5.symbol_info(self.symbol).point
         volume = self.__risk_management()
         order_dict = {'buy': 0, 'sell': 1}
         price_dict = {'buy': tick.ask, 'sell': tick.bid}
+
 
         payload = {
             "action": self.mt5.TRADE_ACTION_DEAL,
@@ -55,8 +57,10 @@ class BotF(Candlesticks):
             "volume": volume,
             "type": order_dict[direction],
             "price": price_dict[direction],
+            "sl": self.mt5.symbol_info_tick(self.symbol).ask-10*point,
+            "tp": self.mt5.symbol_info_tick(self.symbol).ask+100*point,
             "deviation": DEVIATION,
-            "magic": 100,
+            "magic": 234000, #100
             "comment": "bot_i market order",
             "type_time": self.mt5.ORDER_TIME_GTC,
             "type_filling": self.mt5.ORDER_FILLING_IOC,
@@ -185,11 +189,12 @@ class BotF(Candlesticks):
         return tp
 
 
+
 if __name__ == '__main__':
 
     # strategy parameters
     SYMBOL = "BTCUSDm"
-    TIMEFRAME = mt5.TIMEFRAME_M1
+    TIMEFRAME = mt5.TIMEFRAME_M15
     SMA_PERIODS = [50]
     DEVIATION = 20
 
