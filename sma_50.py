@@ -67,7 +67,7 @@ class BotF(Candlesticks):
         }
 
         order_result = self.mt5.order_send(payload)
-        print(order_result)
+        print('Order Here!!!: ', order_result)
 
         return order_result
 
