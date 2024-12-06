@@ -215,7 +215,6 @@ if __name__ == '__main__':
         if direction == 'buy':
             # if we have a BUY signal, close all short positions
             positions = btc_M15.mt5.positions_get(symbol=SYMBOL)
-            print('buy pos: ', positions)
             if positions:
 
                 for pos in positions:
@@ -233,7 +232,6 @@ if __name__ == '__main__':
         elif direction == 'sell':
             # if we have a SELL signal, close all short positions
             positions = btc_M15.mt5.positions_get(symbol=SYMBOL)
-            print('sell pos: ', positions)
             if positions:
                 for pos in positions:
                     if pos.type == 0:  # pos.type == 0 represent a buy order
