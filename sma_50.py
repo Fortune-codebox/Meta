@@ -49,7 +49,7 @@ class BotF(Candlesticks):
         volume = self.__risk_management()
         order_dict = {'buy': 0, 'sell': 1}
         price_dict = {'buy': tick.ask, 'sell': tick.bid}
-
+        print('point: ', point)
 
         payload = {
             "action": self.mt5.TRADE_ACTION_DEAL,
