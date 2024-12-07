@@ -57,14 +57,15 @@ class BotF(Candlesticks):
             "volume": volume,
             "type": order_dict[direction],
             "price": price_dict[direction],
-            "sl": self.mt5.symbol_info_tick(self.symbol).ask-10*point,
-            "tp": self.mt5.symbol_info_tick(self.symbol).ask+100*point,
             "deviation": DEVIATION,
             "magic": 100, #234000
             "comment": "bot_i market order",
             "type_time": self.mt5.ORDER_TIME_GTC,
             "type_filling": self.mt5.ORDER_FILLING_IOC,
         }
+
+            # "sl": self.mt5.symbol_info_tick(self.symbol).ask-(10*point),
+            # "tp": self.mt5.symbol_info_tick(self.symbol).ask+(100*point),
 
         order_result = self.mt5.order_send(payload)
         print(order_result)
